@@ -64,5 +64,3 @@ docker run -d -p 3000:3000 -v $(pwd)/storage:/app/storage simple-python-webapp
 Serhii — GoIT Python Web course project.
 
 ---
-
-> ✅ Ready for submission!
