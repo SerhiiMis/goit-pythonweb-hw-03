@@ -8,7 +8,7 @@ from jinja2 import Environment, FileSystemLoader
 from .storage import load_data, save_message
 
 class SimpleHandler(BaseHTTPRequestHandler):
-    env = Environment(loader=FileSystemLoader("."))
+    env = Environment(loader=FileSystemLoader("templates"))
 
     def do_POST(self):
         if self.path == '/message':
