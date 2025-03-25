@@ -39,12 +39,13 @@ class SimpleHandler(BaseHTTPRequestHandler):
         else:
             self.send_html('error.html', 404)
 
-    def send_html(self, filename, status=200):
+    def send_html(self, template_name, status=200):
+        template = self.env.get_template(template_name)
+        content = template.render()
         self.send_response(status)
         self.send_header('Content-type', 'text/html')
         self.end_headers()
-        with open(filename, 'rb') as file:
-            self.wfile.write(file.read())
+        self.wfile.write(content.encode("utf-8"))
 
     def send_static(self, filepath):
         self.send_response(200)
